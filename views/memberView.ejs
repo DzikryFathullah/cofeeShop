@@ -16,6 +16,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Option</th>
                 </tr>
             </thead>
         <tbody>
@@ -25,6 +26,7 @@
                     <td><%= datum.name %></td>
                     <td><%= datum.email %></td>
                     <td><%= datum.phone %></td>
+                    <td><a href="/member/edit/<%= datum.id %>"><button type="button">Update</button></a></td>
                 </tr>
             <% }) %>
         </tbody>
