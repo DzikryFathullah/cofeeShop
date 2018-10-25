@@ -26,7 +26,8 @@
                     <td><%= datum.name %></td>
                     <td><%= datum.email %></td>
                     <td><%= datum.phone %></td>
-                    <td><a href="/member/edit/<%= datum.id %>"><button type="button">Update</button></a></td>
+                    <td><a href="/member/edit/<%= datum.id %>"><button type="button">Update</button></a>
+                        <a href="/member/delete/<%= datum.id %>"><button type="button">Delete</button></a></td>
                 </tr>
             <% }) %>
         </tbody>
