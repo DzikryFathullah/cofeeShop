@@ -15,6 +15,22 @@ class MemberController {
     static showAdd (req,res) {
         res.render('memberAdd.ejs')
     }
+
+    static add (req,res) {
+        let memberObj = {}
+        memberObj.name = req.body.name
+        memberObj.email = req.body.email
+        memberObj.phone = req.body.phone
+        memberObj.createdAt = new Date()
+        memberObj.updatedAt = new Date()
+        Model.member.create(memberObj)
+        .then(() => {
+            res.redirect('/member')
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
 }
 
 module.exports = MemberController
