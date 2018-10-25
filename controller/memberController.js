@@ -42,6 +42,26 @@ class MemberController {
         })
     }
 
+    static edit (req,res) {
+        Model.member.update(req.body,{where:{id:req.params.id}})
+        .then(() => {
+            res.redirect('/member')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static delete (req,res) {
+        Model.member.destroy({where:{id:req.params.id}})
+        .then(() => {
+            res.redirect('/member')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
 }
 
 module.exports = MemberController
