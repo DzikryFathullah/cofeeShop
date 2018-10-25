@@ -31,6 +31,17 @@ class MemberController {
             res.send(err)
         })
     }
+
+    static showEdit (req,res) {
+        Model.member.findOne({where:{id:req.params.id}})
+        .then(member => {
+            res.render('memberEdit.ejs',{data:member})
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
 }
 
 module.exports = MemberController
