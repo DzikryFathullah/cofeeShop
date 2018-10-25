@@ -32,6 +32,36 @@ class CofeeController {
         })
     }
 
+    static showEdit (req,res) {
+        Model.cofee.findOne({where:{id:req.params.id}})
+        .then(output => {
+            res.render('cofeeEdit.ejs',{data:output})
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static edit (req,res) {
+        Model.cofee.update(req.body,{where:{id:req.params.id}})
+        .then(() => {
+            res.redirect('/cofee')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static delete (req,res) {
+        Model.cofee.destroy({where:{id:req.params.id}})
+        .then(() => {
+            res.redirect('/cofee')
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
+
 }
 
 module.exports = CofeeController
